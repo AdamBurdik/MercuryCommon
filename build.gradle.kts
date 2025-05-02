@@ -17,7 +17,7 @@ java {
 }
 
 dependencies {
-    implementation("com.github.AdamBurdik:MercuryAPI:178f248fd2")
+    compileOnly("com.github.AdamBurdik:MercuryAPI:d1f6239f55")
     implementation("org.tomlj:tomlj:1.1.1")
 
     implementation("org.jetbrains:annotations:26.0.2")
