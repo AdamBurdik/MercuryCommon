@@ -117,4 +117,14 @@ public record MercuryTomlTable(
 	public Set<Map.Entry<String, Object>> dottedEntrySet(boolean includeTables) {
 		return tomlTable.dottedEntrySet(includeTables);
 	}
+
+	@Override
+	public Set<String> keySet() {
+		return tomlTable.keySet();
+	}
+
+	@Override
+	public Set<String> dottedKeySet() {
+		return tomlTable.dottedKeySet();
+	}
 }

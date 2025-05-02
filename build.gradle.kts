@@ -3,7 +3,7 @@ plugins {
 }
 
 group = "me.adamix.mercury.common"
-version = "0.1.0"
+version = "0.1.1"
 
 repositories {
     mavenCentral()
@@ -17,7 +17,7 @@ java {
 }
 
 dependencies {
-    compileOnly("com.github.AdamBurdik:MercuryAPI:cf719ee959")
+    compileOnly("com.github.AdamBurdik:MercuryAPI:e176dd7602")
     implementation("org.tomlj:tomlj:1.1.1")
 
     implementation("org.jetbrains:annotations:26.0.2")

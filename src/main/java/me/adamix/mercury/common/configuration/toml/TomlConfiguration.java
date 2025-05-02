@@ -101,11 +101,6 @@ public record TomlConfiguration(
 		return null;
 	}
 
-	@Override
-	public Set<Map.Entry<String, Object>> dottedEntrySet(boolean includeTables) {
-		return parseResult.dottedEntrySet(includeTables);
-	}
-
 	private @Nullable MercuryPosition extractPosition(@NotNull TomlArray tomlArray) {
 		if (tomlArray.size() != 3 && tomlArray.size() != 5) {
 			return null;
@@ -120,6 +115,22 @@ public record TomlConfiguration(
 			pitch = (float) tomlArray.getDouble(4);
 		}
 		return new SimpleMercuryPosition(x, y, z, yaw, pitch);
+	}
+
+
+	@Override
+	public Set<Map.Entry<String, Object>> dottedEntrySet(boolean includeTables) {
+		return parseResult.dottedEntrySet(includeTables);
+	}
+
+	@Override
+	public Set<String> keySet() {
+		return parseResult.keySet();
+	}
+
+	@Override
+	public Set<String> dottedKeySet() {
+		return parseResult.dottedKeySet();
 	}
 
 	public static TomlConfiguration create(@NotNull Path path) {
