@@ -10,6 +10,8 @@ import org.tomlj.TomlArray;
 import org.tomlj.TomlTable;
 
 import java.nio.file.Path;
+import java.util.Map;
+import java.util.Set;
 
 
 public record MercuryTomlTable(
@@ -108,5 +110,11 @@ public record MercuryTomlTable(
 			pitch = (float) tomlArray.getDouble(4);
 		}
 		return new SimpleMercuryPosition(x, y, z, yaw, pitch);
+	}
+
+
+	@Override
+	public Set<Map.Entry<String, Object>> dottedEntrySet(boolean includeTables) {
+		return tomlTable.dottedEntrySet(includeTables);
 	}
 }

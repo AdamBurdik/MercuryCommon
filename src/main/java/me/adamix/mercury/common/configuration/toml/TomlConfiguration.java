@@ -16,6 +16,8 @@ import org.tomlj.TomlTable;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
+import java.util.Map;
+import java.util.Set;
 
 public record TomlConfiguration(
 		@NotNull TomlParseResult parseResult,
@@ -97,6 +99,11 @@ public record TomlConfiguration(
 			return null;
 		}
 		return null;
+	}
+
+	@Override
+	public Set<Map.Entry<String, Object>> dottedEntrySet(boolean includeTables) {
+		return parseResult.dottedEntrySet(includeTables);
 	}
 
 	private @Nullable MercuryPosition extractPosition(@NotNull TomlArray tomlArray) {
